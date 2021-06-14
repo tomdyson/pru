@@ -1,30 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<title> </title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+<html lang="en" class="no-js">
 
-<body class="w-100 sans-serif bg-white">
-    <article class="pa3 pa5-ns">
-        <h1 class="f3 f1-m f-headline-l">Pru’s funeral</h1>
-        <p class="measure lh-copy">
-            Pru Jeffrey’s funeral will take place at St John’s the Baptist Church, Fladbury,
-            on Monday June 14th, at 12:00am BST.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pru Jeffrey's funeral</title>
+    <script src="https://unpkg.com/@mux/videojs-kit@0.1/dist/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@mux/videojs-kit@0.1/dist/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+</head>
+
+<body class="w-80 sans-serif bg-white">
+    <article class="pa3 pa5">
+        <h1 class="f4 f1-m f1-l mt0 mb0">Pru’s funeral</h1>
+        <p class="measure lh-copy mt2 mb3">
+            This is a recording of the live stream of Pru Jeffrey’s funeral,
+            which took place at St John’s the Baptist Church, Fladbury, on
+            Monday June 14th, at 12:30am BST.
         </p>
-        <p class="measure lh-copy">
-            A video recording of the service should be available here within a day. I will also try to
-            stream it live, but this is dependent on the strength of the mobile signal, which is variable.
-            If it’s not working for you, the problem is almost certainly because our connection isn’t strong enough.
-            Any streaming issues will not affect the quality of the final recording. Please contact me
-            on tom@torchbox.com if you have any questions.
-        </p>
-        <p class="measure lh-copy">
-            To watch the live stream, go to <a class="dark-green no-underline underline-hover"
-                href="https://pru.tomd.org/watch/">https://pru.tomd.org/watch/</a>
-            after 12:00 BST on June 14th. If there’s a message that "The media could not be loaded", please
-            wait a minute and refresh the page. If it becomes clear that streaming will not work, I’ll update
-            this page with a message.
-        </p>
+
+        <video id="my-player" class="video-js vjs-16-9" controls preload="auto" width="100%"></video>
+
+        <script>
+            const player = videojs('my-player', {
+                timelineHoverPreviews: true,
+                plugins: {
+                    mux: {
+                        debug: false,
+                    }
+                }
+            });
+
+            player.src({
+                src: "PGYEAdtA59vzHtOp2XU8XBez02ga7fsoiXesBb1o4d02M",
+                type: "video/mux",
+            });
+            player.currentTime(1882);
+        </script>
     </article>
 </body>
 
